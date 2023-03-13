@@ -1,0 +1,12 @@
+Q2
+(1) Performs Person's tasks
+(2) Invoke Employee's overloaded constructor
+(3) Performs Employee's tasks 
+(4) Performs Faculty's tasks
+
+The program starts by creating a new Faculty instance in new Faculty(). As Faculty is inherited from Employee, which is inherited from Person, the Person() constructor is ran first [which prints (1)], followed by Employee(), which calls Employee(String s) [which prints (2)] before printing (3). Lastly the Faculty() constructor can be called to print (4).
+
+Q3
+AB
+
+The value A overrides B when A is called, while it is kept as B when B is called.

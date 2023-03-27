@@ -1,0 +1,33 @@
+package T3;
+
+interface Dispenser {
+    String itemName = "";
+    double itemPrice = 0.0;
+    int itemQty = 0;
+
+    public void dispense();
+    public void restock();
+
+}
+
+
+interface cashRegister {
+    double total = 0.0;
+    double cash = 0.0;
+    double change = 0.0;
+
+    public void add(double price);
+    public void pay(double cash);
+    public void change();
+    public void printReceipt();
+}
+
+
+interface CandyMachine extends Dispenser, cashRegister {
+    public void dispense();
+    public void restock();
+    public void add(double price);
+    public void pay(double cash);
+    public void change();
+    public void printReceipt();
+}

@@ -125,11 +125,11 @@ class CandyMachine {
         if (cont == 'y') {
             display();
         } else {
-            pay();
+            cmPay();
         }
     }
 
-    public void pay(){
+    public void cmPay(){
         System.out.println("\nTotal: " + cash.getTotal());
 
         while (!cash.check()) {

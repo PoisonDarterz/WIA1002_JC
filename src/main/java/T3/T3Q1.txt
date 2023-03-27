@@ -1,33 +1,62 @@
-package T3;
+Dispenser:
+    Variables: itemName, itemStock, itemPrice, cart
+    Methods:
+        addToCart(); //adds item to cart, remove item from stock
+        restock();   //adds item to stock
 
-interface Dispenser {
-    String itemName = "";
-    double itemPrice = 0.0;
-    int itemQty = 0;
+UML:
+-------------------------------------------------
+| Dispenser                                     |
+-------------------------------------------------
+| - itemName: String                            |
+| - itemStock: int                              |
+| - itemPrice: double                           |
+| - cart: int                                   |
+-------------------------------------------------
+| + addToCart(amount: int): void                |
+-------------------------------------------------
 
-    public void dispense();
-    public void restock();
+Cash Register:
+    Variables: cashIn, total, change
+    Methods:
+        pay();      //adds cash to cashIn, subtracts total from cashIn
+        change();   //returns change
+        total();    //returns total
+        check();    //checks if cashIn is greater than total
 
-}
+UML:
+-----------------------------------------------------
+| Cash Register                                     |
+-----------------------------------------------------
+| - cashIn: double                                  |
+| - total: double                                   |
+| - change: double                                  |
+-----------------------------------------------------
+| + pay(): void                                     |
+| + change(): double                                |
+| + total(price: double): void                      |
+| + check(): boolean                                |
+-----------------------------------------------------
 
+Candy Machine:
+    Variables: disps, cashReg
+    Methods:
+        display();      // display stock in machine
+        select();       // selects items, calls addToCart() and total()
+        pay();          // payment, calls check(), pay() and change()
+        dispense();     // dispense item
 
-interface cashRegister {
-    double total = 0.0;
-    double cash = 0.0;
-    double change = 0.0;
-
-    public void add(double price);
-    public void pay(double cash);
-    public void change();
-    public void printReceipt();
-}
-
-
-interface CandyMachine extends Dispenser, cashRegister {
-    public void dispense();
-    public void restock();
-    public void add(double price);
-    public void pay(double cash);
-    public void change();
-    public void printReceipt();
-}
+UML:
+-----------------------------------------------------
+| Candy Machine                                     |
+-----------------------------------------------------
+| - disps: Dispenser[]                              |
+| - cashReg: Cash Register                          |
+-----------------------------------------------------
+| + dispItem(): void                                |
+| + select(): void                                  |
+| + total(): double                                 |
+| + pay(): void                                     |
+| + change(): double                                |
+| + dispense(): void                                |
+-----------------------------------------------------

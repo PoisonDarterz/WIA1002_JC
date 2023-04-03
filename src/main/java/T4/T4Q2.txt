@@ -1,0 +1,16 @@
+package T4;
+
+public class T4Q2 {
+    public void contains(E e){
+        Node<E> pointerB = head;
+        pointerB.next = pointerB;
+        for (int i = 1; i < size; i++){
+            Node<E> current = pointerB.next;
+            if (current.element == e){
+                System.out.println(current.element);
+                return;
+            }
+        }
+        System.out.println("Not Found");
+    }
+}

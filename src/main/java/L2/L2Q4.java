@@ -1,7 +1,5 @@
 package L2;
 
-import java.util.Arrays;
-
 public class L2Q4 {
     public static <T extends Comparable<T>> String minmax(T[] arr){
         T max = arr[0], min = arr[0];

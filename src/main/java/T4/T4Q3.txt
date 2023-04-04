@@ -1,0 +1,21 @@
+a) removeLast
+b)
+public void removeLast() {
+    if (size == 0) {
+        System.out.println("List is empty");
+    }
+    if (size == 1) {
+        head = tail = null;
+        size = 0;
+    } else {
+        Node<E> pointer1 = head;
+        for (int i = 0; i < size - 2; i++) {
+            pointer1 = pointer1.next;
+        }
+        Node<E> temp = tail;
+        tail = pointer1;
+        tail.next = null;
+        size--;
+    }
+
+}

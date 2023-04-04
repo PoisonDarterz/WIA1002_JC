@@ -47,10 +47,11 @@ class LinkedList<E> {
             System.out.println("List is empty");
         } else if (size == 1) {
             head = tail = null;
+            size = 0;
         } else {
             head = head.next;
+            size--;
         }
-        size--;
     }
 
     public void removeLast () {
@@ -58,6 +59,7 @@ class LinkedList<E> {
             System.out.println("List is empty");
         } else if (size == 1) {
             head = tail = null;
+            size = 0;
         } else {
             Node<E> current = head;
             for (int i = 0; i < size - 2; i++) {
@@ -65,8 +67,8 @@ class LinkedList<E> {
             }
             tail = current;
             tail.next = null;
+            size--;
         }
-        size--;
     }
 
     public void remove (int index) {
@@ -82,8 +84,8 @@ class LinkedList<E> {
                 current = current.next;
             }
             current.next = (current.next).next;
+            size--;
         }
-        size--;
     }
 
     public void printList () {

@@ -1,0 +1,35 @@
+package T5;
+
+public class T5Q1<E> {
+    public E xyz(int index,E e) {
+        Node<E> current=head;
+        Node<E> temp = new Node<>(e);
+
+        if(index<0 || index > size) return null;
+
+        /* this is unnecessary, remove in question c
+        else if(index == size) {
+            return this.addLast(e);
+            // return null;
+
+        } else if(index==0) {                       // if index is 0,
+            temp=head;                              // then the element will be added to the head
+            head.element=e;
+            return temp.element;                    // return the element that was in the head
+        }
+        end remove */
+
+        else {                                      // if index is in the middle
+            for (int i = 0; i < index - 1; i++) {   // find the node before the index
+                current=current.next;
+            }
+            temp=current.next;                      // store the element that will be replaced
+            current.next.element=e;                 // replace the element
+            return temp.element;                    // return the element that was replaced
+        }
+    }
+}
+
+/*
+The main purpose of this method is to replace the element at the index with the element e.
+*/

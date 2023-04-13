@@ -1,0 +1,56 @@
+Q2:
+a)
+Lines 2-5: traverse through the list until index i is reached
+Line 6: set the element value
+Line 7-10: Disconnect the node from the list by unlinking prev and next
+Line 11: decrease size of list
+
+b)
+--------    --------    --------    --------    --------
+| prev | <- | prev | <- | prev | <- | prev | <- | prev |
+--------    --------    --------    --------    --------
+|  1   |    |  2   |    |  3   |    |  4   |    |  5   |
+--------    --------    --------    --------    --------
+| next | -> | next | -> | next | -> | next | -> | next |
+--------    --------    --------    --------    --------
+
+                            |
+                            v
+
+                ;-----------------------
+                v                      |
+--------    --------    --------    --------    --------
+| prev | <- | prev |    | prev |    | prev | <- | prev |
+--------    --------    --------    --------    --------
+|  1   |    |  2   |    |  3   |    |  4   |    |  5   |
+--------    --------    --------    --------    --------
+| next | -> | next |    | next |    | next | -> | next |
+--------    --------    --------    --------    --------
+                |                      ^
+                -----------------------'
+
+                            |
+                            v
+
+    --------    --------     --------    --------
+    | prev | <- | prev |  <- | prev | <- | prev |
+    --------    --------     --------    --------
+    |  1   |    |  2   |     |  4   |    |  5   |
+    --------    --------     --------    --------
+    | next | -> | next |  -> | next | -> | next |
+    --------    --------     --------    --------
+
+
+Q3:
+public void addLast(E item) {
+	Node<E> newNode = new Node<E>(tail, item, null);
+	if(head == null)
+		head = newNode;
+	else
+		tail.next = newNode;
+	tail = newNode;
+	size++;
+}
+
+addLast('z');
+

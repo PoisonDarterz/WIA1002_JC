@@ -27,8 +27,8 @@ class Dispenser {
     public int getCart() {
         return cart;
     }
-    public void deductStock(int itemStock) {
-        this.itemStock -= itemStock;
+    public void deductStock(int amount) {
+        this.itemStock -= amount;
     }
 
     public boolean addToCart(int amount) {
@@ -87,7 +87,7 @@ class cashRegister {
         if (cashIn >= total) {
             return true;
         } else {
-            System.out.println("Balance: " +  (total - cashIn));
+            System.out.printf("Balance: %.2f\n",  (total - cashIn));
             return false;
         }
     }
@@ -103,9 +103,9 @@ class CandyMachine {
     }
 
     public void display(){
-        System.out.printf("%-10s%-5s%-5s\n", "Item", "Price", "Stock");
+        System.out.printf("%-10s%-10s%-5s\n", "Item", "Price", "Stock");
         for (Dispenser d : disps) {
-            System.out.printf("%-10s%-5.2f%-5d\n", d.getItemName(), d.getItemPrice(), d.getItemStock());
+            System.out.printf("%-10s%-10.2f%-5d\n", d.getItemName(), d.getItemPrice(), d.getItemStock());
         }
         select();
     }
@@ -118,6 +118,7 @@ class CandyMachine {
         
         if (disps[choice].addToCart(amount)) {
             cash.total(disps[choice].getItemPrice() * amount);
+            disps[choice].deductStock(disps[choice].getCart());
         }
 
         System.out.print("Continue? (y/n): ");
@@ -130,13 +131,13 @@ class CandyMachine {
     }
 
     public void cmPay(){
-        System.out.println("\nTotal: " + cash.getTotal());
+        System.out.printf("\nTotal: %.2f\n", cash.getTotal());
 
         while (!cash.check()) {
             cash.pay();
         }
 
-        System.out.println("Change: " + cash.change());
+        System.out.printf("Change: %.2f\n", cash.change());
         dispense();
     }
 
@@ -145,7 +146,6 @@ class CandyMachine {
         for (Dispenser d : disps) {
             if (d.getCart() > 0) {
                 System.out.println(d.getItemName() + ": " + d.getCart());
-                d.deductStock(d.getCart());
             }
         }
     }

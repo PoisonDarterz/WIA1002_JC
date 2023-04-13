@@ -1,8 +1,8 @@
 Dispenser:
     Variables: itemName, itemStock, itemPrice, cart
     Methods:
-        addToCart(); //adds item to cart, remove item from stock
-        restock();   //adds item to stock
+        addToCart();    //adds item to cart, remove item from stock
+        deductStock();  //deducts item from stock
 
 UML:
 -------------------------------------------------
@@ -14,7 +14,9 @@ UML:
 | - cart: int                                   |
 -------------------------------------------------
 | + addToCart(amount: int): void                |
+| + deductStock(amount: int): void              |
 -------------------------------------------------
+
 
 Cash Register:
     Variables: cashIn, total, change
@@ -26,7 +28,7 @@ Cash Register:
 
 UML:
 -----------------------------------------------------
-| Cash Register                                     |
+| CashRegister                                      |
 -----------------------------------------------------
 | - cashIn: double                                  |
 | - total: double                                   |
@@ -38,25 +40,24 @@ UML:
 | + check(): boolean                                |
 -----------------------------------------------------
 
+
 Candy Machine:
-    Variables: disps, cashReg
+    Variables: disps, cash
     Methods:
         display();      // display stock in machine
         select();       // selects items, calls addToCart() and total()
-        pay();          // payment, calls check(), pay() and change()
+        cmPay();          // payment, calls check(), pay() and change()
         dispense();     // dispense item
 
 UML:
 -----------------------------------------------------
-| Candy Machine                                     |
+| CandyMachine                                      |
 -----------------------------------------------------
 | - disps: Dispenser[]                              |
-| - cashReg: Cash Register                          |
+| - cash: Cash Register                             |
 -----------------------------------------------------
-| + dispItem(): void                                |
+| + display(): void                                 |
 | + select(): void                                  |
-| + total(): double                                 |
-| + pay(): void                                     |
-| + change(): double                                |
+| + cmPay(): void                                   |
 | + dispense(): void                                |
 -----------------------------------------------------

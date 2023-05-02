@@ -227,13 +227,14 @@ public class MyLinkedList<E> {
             System.out.println("List is empty");
             return null;
         } else {
-            Node<E> slow = head;
-            Node<E> fast = head;
-            while (fast != null && fast.next != null) {
-                slow = slow.next;
-                fast = fast.next.next;
-            }
-            return slow.element;
+//            Node<E> slow = head;
+//            Node<E> fast = head;
+//            while (fast != null && fast.next != null) {
+//                slow = slow.next;
+//                fast = fast.next.next;
+//            }
+//            return slow.element;
+            return get(size/2);
         }
     }
 }

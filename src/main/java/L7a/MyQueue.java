@@ -1,4 +1,4 @@
-package L7;
+package L7a;
 
 import java.util.LinkedList;
 

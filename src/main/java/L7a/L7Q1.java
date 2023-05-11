@@ -1,4 +1,4 @@
-package L7;
+package L7a;
 
 public class L7Q1 {
     public static void main(String[] args) {

@@ -1,0 +1,32 @@
+Q1:
+Queue is linear FIFO. Priority queue is linear but not FIFO (sorted by Priority).
+
+Q2:
+Hospital queue: more severe emergency cases are trated immediately
+Some methods of public transportation have "express lanes" which has a slightly higher ticket fee.
+An ambulance in a line of traffic.
+
+Q3:
+peek() gives us: C++
+The queue elements:
+C++
+Fortran
+Java
+Python
+After poll():
+Fortran
+Python
+Java
+After remove():
+Fortran
+Python
+Priority queue contains Ruby or not?: false
+Value in array:
+Value: Fortran
+Value: Python
+
+Q4:
+a. ensure the queue is sorted in string length
+b.  Ali
+    Jason
+    Muhammad

@@ -1,42 +1,49 @@
 package selfuse;
 
-import java.util.*;  
+class T9Q3 {
+    public static void main(String[] args) {
+//        System.out.println(reverse1("Hello"));
+//        System.out.println(reverse2("Hello world!"));
+//        System.out.println(reverse3("SayGoodbye!"));
+        printDigit(4567);
+    }
 
-class C { 
-    public static void main(String[] args) { 
+    // Approach 1
+    public static String reverse(String str, String rev) {
+        if(str.isEmpty())
+            return rev;
+        else
+            return reverse(str.substring(0, str.length() - 1), rev + str.charAt(str.length() - 1));
+    }
 
-                PriorityQueue<String> pQueue = new PriorityQueue<String>(); 
-          
-                pQueue.offer("C++"); 
-                pQueue.offer("Python"); 
-                pQueue.offer("Java"); 
-                pQueue.offer("Fortran"); 
-          
-                System.out.println("peek() gives us: "+ pQueue.peek());     //(a) 
-          
-                System.out.println("The queue elements:");                         //(b) 
-                Iterator itr = pQueue.iterator(); 
-                while (itr.hasNext()) 
-                    System.out.println(itr.next());                                           //(b) 
-          
-                pQueue.poll(); 
-                System.out.println("After poll():");                                      //(c) 
-                Iterator<String> itr2 = pQueue.iterator(); 
-                while (itr2.hasNext()) 
-                    System.out.println(itr2.next());                                         //(c) 
-          
-                pQueue.remove("Java"); 
-                System.out.println("After remove():");                                 //(d) 
-                Iterator<String> itr3 = pQueue.iterator(); 
-                while (itr3.hasNext()) 
-                    System.out.println(itr3.next());                                         //(d) 
-          
-                boolean b = pQueue.contains("Ruby"); 
-                System.out.println ( "Priority queue contains Ruby or not?: " + b);          //(e) 
-          
-                Object[] arr = pQueue.toArray(); 
-                System.out.println ( "Value in array: ");                                //(f) 
-                for (int i = 0; i<arr.length; i++) 
-                  System.out.println ( "Value: " + arr[i].toString()) ;             //(f)
-     }   
- } 
+    public static String reverse1(String str) {
+        return reverse(str, "");
+    }
+
+    // Approach 2
+    public static String reverse(StringBuilder sb, String str) {
+        if(str.isEmpty())
+            return sb.toString();
+        else
+            return reverse(sb.append(str.charAt(str.length() - 1)), str.substring(0, str.length() - 1));
+    }
+
+    public static String reverse2(String str) {
+        return reverse(new StringBuilder(), str);
+    }
+
+    // Approach 3
+    public static String reverse3(String str) {
+        if(str.length() <= 1)
+            return str;
+        else
+            return reverse3(str.substring(1)) + str.charAt(0);
+    }
+
+    public static void printDigit(int n) {
+        if (n > 0) {
+            printDigit(n / 10);
+            System.out.print(n % 10 + " ");
+        }
+    }
+}

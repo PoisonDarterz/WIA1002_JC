@@ -1,0 +1,25 @@
+1. As the initial n is lower than the base case, an infinite recursion occurs as n will not reach 1
+
+2. no argument, syntax error
+
+3.  public static String reverse(String str, String rev) {
+        if(str.isEmpty())
+            return rev;
+        else
+            return reverse(str.substring(0, str.length() - 1), rev + str.charAt(str.length() - 1));
+    }
+
+4.  public static int sum(int n) {
+        if (n <= 1) {
+            return 1;
+        } else {
+            return n + sum(n-1);
+        }
+    }
+
+5.  public static void printDigit(int n) {
+        if (n > 0) {
+            printDigit(n / 10);
+            System.out.print(n % 10 + " ");
+        }
+    }

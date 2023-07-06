@@ -28,7 +28,9 @@ public class ArrayBagDemo {
 
         System.out.println("bag5, test the method difference of bag1 and bag2:");
         ArrayBag<String> bag5 = (ArrayBag<String>) bag1.difference(bag2);
+        ArrayBag<String> bag6 = (ArrayBag<String>) bag2.difference(bag1);
         displayBag(bag5);
+        displayBag(bag6);
     }
 
     private static void testAdd(BagInterface<String> aBag, String[] content) {
